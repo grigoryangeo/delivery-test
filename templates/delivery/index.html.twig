@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% if apiErrors %}
+        <p>Ошибки при попытке создания доставки:</p>
+        <p> {{ apiErrors }}</p>
+    {% endif %}
+    <p>
+    <h2>Создание доставки</h2>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <button type="button"
+            class="add-another-collection-widget"
+            data-list-selector="#product-list">Добавить товар
+    </button>
+
+    <ul id="product-list"
+        data-prototype="{{ form_widget(form.products.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li></li>'|e }}"
+        data-widget-counter="{{ form.children|length }}">
+        {% for productField in form.products %}
+            <li>
+                {{ form_errors(productField) }}
+                {{ form_widget(productField) }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    {{ form_end(form) }}
+    </p>
+{% endblock %}
