@@ -145,11 +145,10 @@ class Order
         $metadata->addPropertyConstraint('timeEnd', new Assert\DateTime());
 
         $metadata->addPropertyConstraint('payMethod', new Assert\NotBlank());
-        /*
-                $metadata->addPropertyConstraint('payMethod', new Assert\Choice([
-                    'callback' => ['getPayMethods'],
-                ]));
-        */
+        $metadata->addPropertyConstraint(
+            'payMethod',
+            new Assert\Choice(self::getPayMethods())
+        );
     }
 
     /**

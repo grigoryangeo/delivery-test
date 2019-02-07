@@ -11,4 +11,4 @@
 >composer install
 
 ### run
-Application have 1 pages: form create delivery
+Application have 1 page: form create delivery
