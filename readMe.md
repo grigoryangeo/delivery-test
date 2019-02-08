@@ -5,7 +5,7 @@
 
 ### install
 
->cp .env .env.local
+>cp .env.dist .env.local
 > edit db parametrs .env file
 
 >composer install
